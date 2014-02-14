@@ -1,0 +1,27 @@
+//
+//  FMVMovieDetailViewController.h
+//  movies
+//
+//  Created by Ian Meyer on 2/14/14.
+//  Copyright (c) 2014 Ian Meyer. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+#import "FMVDataHandler.h"
+
+typedef NS_ENUM( NSInteger, FMVMovieDetailViewControllerMode ) {
+    FMVMovieDetailViewControllerModeDefault = 0,
+    FMVMovieDetailViewControllerModeEditMovie, // also set by setEditing
+    FMVMovieDetailViewControllerModeNewMovie,
+};
+
+@interface FMVMovieDetailViewController : UITableViewController
+
+@property (nonatomic, strong) FMVMovie *movie;
+@property (nonatomic) FMVMovieDetailViewControllerMode mode;
+
+- (instancetype)initWithMovie:(FMVMovie *)movie; // FMVMovieDetailViewControllerModeDefault
+- (instancetype)initWithMovie:(FMVMovie *)movie andMode:(FMVMovieDetailViewControllerMode)mode;
+
+@end

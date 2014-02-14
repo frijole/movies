@@ -13,15 +13,22 @@
 		3C6E379618ADBCDC002602D4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3C6E379418ADBCDC002602D4 /* InfoPlist.strings */; };
 		3C6E379818ADBCDC002602D4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C6E379718ADBCDC002602D4 /* main.m */; };
 		3C6E379C18ADBCDC002602D4 /* FMVAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C6E379B18ADBCDC002602D4 /* FMVAppDelegate.m */; };
-		3C6E379F18ADBCDC002602D4 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C6E379D18ADBCDC002602D4 /* Main_iPhone.storyboard */; };
-		3C6E37A218ADBCDC002602D4 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C6E37A018ADBCDC002602D4 /* Main_iPad.storyboard */; };
-		3C6E37A518ADBCDC002602D4 /* FMVViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C6E37A418ADBCDC002602D4 /* FMVViewController.m */; };
+		3C6E37A518ADBCDC002602D4 /* FMVMovieListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C6E37A418ADBCDC002602D4 /* FMVMovieListViewController.m */; };
 		3C6E37A718ADBCDC002602D4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C6E37A618ADBCDC002602D4 /* Images.xcassets */; };
 		3C6E37AE18ADBCDD002602D4 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6E37AD18ADBCDD002602D4 /* XCTest.framework */; };
 		3C6E37AF18ADBCDD002602D4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6E378B18ADBCDC002602D4 /* Foundation.framework */; };
 		3C6E37B018ADBCDD002602D4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6E378F18ADBCDC002602D4 /* UIKit.framework */; };
 		3C6E37B818ADBCDD002602D4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3C6E37B618ADBCDD002602D4 /* InfoPlist.strings */; };
 		3C6E37BA18ADBCDD002602D4 /* moviesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C6E37B918ADBCDD002602D4 /* moviesTests.m */; };
+		3C6E37C518ADBE88002602D4 /* FMVDataHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C6E37C418ADBE88002602D4 /* FMVDataHandler.m */; };
+		3C6E37C618ADBE88002602D4 /* FMVDataHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C6E37C418ADBE88002602D4 /* FMVDataHandler.m */; };
+		3C6E37C818AE7446002602D4 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6E37C718AE7446002602D4 /* AVFoundation.framework */; };
+		3C6E37CB18AE7468002602D4 /* FMVMovieDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C6E37CA18AE7468002602D4 /* FMVMovieDetailViewController.m */; };
+		3C6E37CC18AE7468002602D4 /* FMVMovieDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C6E37CA18AE7468002602D4 /* FMVMovieDetailViewController.m */; };
+		3C6E381618AE7E8D002602D4 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C6E381418AE7E8D002602D4 /* Main_iPad.storyboard */; };
+		3C6E381718AE7E8E002602D4 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C6E381418AE7E8D002602D4 /* Main_iPad.storyboard */; };
+		3C6E381818AE7E8E002602D4 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C6E381518AE7E8D002602D4 /* Main_iPhone.storyboard */; };
+		3C6E381918AE7E8E002602D4 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C6E381518AE7E8D002602D4 /* Main_iPhone.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,16 +52,21 @@
 		3C6E379918ADBCDC002602D4 /* movies-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "movies-Prefix.pch"; sourceTree = "<group>"; };
 		3C6E379A18ADBCDC002602D4 /* FMVAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FMVAppDelegate.h; sourceTree = "<group>"; };
 		3C6E379B18ADBCDC002602D4 /* FMVAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMVAppDelegate.m; sourceTree = "<group>"; };
-		3C6E379E18ADBCDC002602D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
-		3C6E37A118ADBCDC002602D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		3C6E37A318ADBCDC002602D4 /* FMVViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FMVViewController.h; sourceTree = "<group>"; };
-		3C6E37A418ADBCDC002602D4 /* FMVViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMVViewController.m; sourceTree = "<group>"; };
+		3C6E37A318ADBCDC002602D4 /* FMVMovieListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FMVMovieListViewController.h; sourceTree = "<group>"; };
+		3C6E37A418ADBCDC002602D4 /* FMVMovieListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMVMovieListViewController.m; sourceTree = "<group>"; };
 		3C6E37A618ADBCDC002602D4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3C6E37AC18ADBCDD002602D4 /* moviesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = moviesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C6E37AD18ADBCDD002602D4 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		3C6E37B518ADBCDD002602D4 /* moviesTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "moviesTests-Info.plist"; sourceTree = "<group>"; };
 		3C6E37B718ADBCDD002602D4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3C6E37B918ADBCDD002602D4 /* moviesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = moviesTests.m; sourceTree = "<group>"; };
+		3C6E37C318ADBE88002602D4 /* FMVDataHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMVDataHandler.h; path = movies/FMVDataHandler.h; sourceTree = "<group>"; };
+		3C6E37C418ADBE88002602D4 /* FMVDataHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMVDataHandler.m; path = movies/FMVDataHandler.m; sourceTree = "<group>"; };
+		3C6E37C718AE7446002602D4 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		3C6E37C918AE7468002602D4 /* FMVMovieDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMVMovieDetailViewController.h; sourceTree = "<group>"; };
+		3C6E37CA18AE7468002602D4 /* FMVMovieDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMVMovieDetailViewController.m; sourceTree = "<group>"; };
+		3C6E381418AE7E8D002602D4 /* Main_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_iPad.storyboard; sourceTree = "<group>"; };
+		3C6E381518AE7E8D002602D4 /* Main_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_iPhone.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C6E37C818AE7446002602D4 /* AVFoundation.framework in Frameworks */,
 				3C6E378E18ADBCDC002602D4 /* CoreGraphics.framework in Frameworks */,
 				3C6E379018ADBCDC002602D4 /* UIKit.framework in Frameworks */,
 				3C6E378C18ADBCDC002602D4 /* Foundation.framework in Frameworks */,
@@ -84,6 +97,8 @@
 		3C6E377F18ADBCDC002602D4 = {
 			isa = PBXGroup;
 			children = (
+				3C6E37C318ADBE88002602D4 /* FMVDataHandler.h */,
+				3C6E37C418ADBE88002602D4 /* FMVDataHandler.m */,
 				3C6E379118ADBCDC002602D4 /* movies */,
 				3C6E37B318ADBCDD002602D4 /* moviesTests */,
 				3C6E378A18ADBCDC002602D4 /* Frameworks */,
@@ -103,6 +118,7 @@
 		3C6E378A18ADBCDC002602D4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3C6E37C718AE7446002602D4 /* AVFoundation.framework */,
 				3C6E378B18ADBCDC002602D4 /* Foundation.framework */,
 				3C6E378D18ADBCDC002602D4 /* CoreGraphics.framework */,
 				3C6E378F18ADBCDC002602D4 /* UIKit.framework */,
@@ -116,11 +132,12 @@
 			children = (
 				3C6E379A18ADBCDC002602D4 /* FMVAppDelegate.h */,
 				3C6E379B18ADBCDC002602D4 /* FMVAppDelegate.m */,
-				3C6E379D18ADBCDC002602D4 /* Main_iPhone.storyboard */,
-				3C6E37A018ADBCDC002602D4 /* Main_iPad.storyboard */,
-				3C6E37A318ADBCDC002602D4 /* FMVViewController.h */,
-				3C6E37A418ADBCDC002602D4 /* FMVViewController.m */,
-				3C6E37A618ADBCDC002602D4 /* Images.xcassets */,
+				3C6E381518AE7E8D002602D4 /* Main_iPhone.storyboard */,
+				3C6E381418AE7E8D002602D4 /* Main_iPad.storyboard */,
+				3C6E37A318ADBCDC002602D4 /* FMVMovieListViewController.h */,
+				3C6E37A418ADBCDC002602D4 /* FMVMovieListViewController.m */,
+				3C6E37C918AE7468002602D4 /* FMVMovieDetailViewController.h */,
+				3C6E37CA18AE7468002602D4 /* FMVMovieDetailViewController.m */,
 				3C6E379218ADBCDC002602D4 /* Supporting Files */,
 			);
 			path = movies;
@@ -129,10 +146,11 @@
 		3C6E379218ADBCDC002602D4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				3C6E379318ADBCDC002602D4 /* movies-Info.plist */,
-				3C6E379418ADBCDC002602D4 /* InfoPlist.strings */,
 				3C6E379718ADBCDC002602D4 /* main.m */,
 				3C6E379918ADBCDC002602D4 /* movies-Prefix.pch */,
+				3C6E379318ADBCDC002602D4 /* movies-Info.plist */,
+				3C6E379418ADBCDC002602D4 /* InfoPlist.strings */,
+				3C6E37A618ADBCDC002602D4 /* Images.xcassets */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -203,6 +221,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Ian Meyer";
 				TargetAttributes = {
+					3C6E378718ADBCDC002602D4 = {
+						DevelopmentTeam = W27P2Y376L;
+					};
 					3C6E37AB18ADBCDD002602D4 = {
 						TestTargetID = 3C6E378718ADBCDC002602D4;
 					};
@@ -232,9 +253,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3C6E37A218ADBCDC002602D4 /* Main_iPad.storyboard in Resources */,
+				3C6E381818AE7E8E002602D4 /* Main_iPhone.storyboard in Resources */,
+				3C6E381618AE7E8D002602D4 /* Main_iPad.storyboard in Resources */,
 				3C6E37A718ADBCDC002602D4 /* Images.xcassets in Resources */,
-				3C6E379F18ADBCDC002602D4 /* Main_iPhone.storyboard in Resources */,
 				3C6E379618ADBCDC002602D4 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -244,6 +265,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C6E37B818ADBCDD002602D4 /* InfoPlist.strings in Resources */,
+				3C6E381718AE7E8E002602D4 /* Main_iPad.storyboard in Resources */,
+				3C6E381918AE7E8E002602D4 /* Main_iPhone.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,8 +277,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C6E37C518ADBE88002602D4 /* FMVDataHandler.m in Sources */,
+				3C6E37CB18AE7468002602D4 /* FMVMovieDetailViewController.m in Sources */,
 				3C6E379C18ADBCDC002602D4 /* FMVAppDelegate.m in Sources */,
-				3C6E37A518ADBCDC002602D4 /* FMVViewController.m in Sources */,
+				3C6E37A518ADBCDC002602D4 /* FMVMovieListViewController.m in Sources */,
 				3C6E379818ADBCDC002602D4 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -264,6 +289,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C6E37C618ADBE88002602D4 /* FMVDataHandler.m in Sources */,
+				3C6E37CC18AE7468002602D4 /* FMVMovieDetailViewController.m in Sources */,
 				3C6E37BA18ADBCDD002602D4 /* moviesTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -285,22 +312,6 @@
 				3C6E379518ADBCDC002602D4 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		3C6E379D18ADBCDC002602D4 /* Main_iPhone.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3C6E379E18ADBCDC002602D4 /* Base */,
-			);
-			name = Main_iPhone.storyboard;
-			sourceTree = "<group>";
-		};
-		3C6E37A018ADBCDC002602D4 /* Main_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3C6E37A118ADBCDC002602D4 /* Base */,
-			);
-			name = Main_iPad.storyboard;
 			sourceTree = "<group>";
 		};
 		3C6E37B618ADBCDD002602D4 /* InfoPlist.strings */ = {
@@ -393,6 +404,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "movies/movies-Prefix.pch";
 				INFOPLIST_FILE = "movies/movies-Info.plist";
@@ -406,6 +418,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "movies/movies-Prefix.pch";
 				INFOPLIST_FILE = "movies/movies-Info.plist";

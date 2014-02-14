@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FMVViewController : UIViewController
+@interface FMVMovieListViewController : UITableViewController
+
+@property (nonatomic, strong) NSArray *movies;
 
 @end
