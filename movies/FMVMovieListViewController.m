@@ -8,7 +8,10 @@
 
 #import "FMVMovieListViewController.h"
 
+#import "FMVMovieDetailViewController.h"
+
 #import "FMVDataHandler.h"
+
 
 NS_ENUM( NSInteger, FMVMovieListSection ) {
     FMVMovieListSectionMovies = 0,
@@ -57,6 +60,25 @@ NS_ENUM( NSInteger, FMVMovieListSection ) {
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)addButtonPressed:(id)sender
+{
+    // create an empty movie
+    FMVMovie *tmpMovie = [[FMVMovie alloc] init];
+    
+    // try to add it
+    if ( [FMVDataHandler addMovie:tmpMovie] ) {
+        // present editor
+        FMVMovieDetailViewController *tmpDetailVC = [[FMVMovieDetailViewController alloc] initWithMovie:tmpMovie andMode:FMVMovieDetailViewControllerModeNewMovie];
+        [self.navigationController pushViewController:tmpDetailVC animated:YES];
+    }
+    else
+    {
+        // or present error
+        UIAlertView *tmpAlert = [[UIAlertView alloc] initWithTitle:@"Movies" message:@"Sorry, there was a problem adding a new movie." delegate:nil cancelButtonTitle:@"Darn" otherButtonTitles:nil];
+        [tmpAlert show];
+    }
 }
 
 #pragma mark - Table View

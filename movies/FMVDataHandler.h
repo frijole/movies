@@ -32,7 +32,7 @@
 @end
 
 
-@interface FMVMovie
+@interface FMVMovie : NSObject
 
 // this comes back from the api, but i dunno what it does
 // @property (nonatomic)         BOOL response;        // "True"
