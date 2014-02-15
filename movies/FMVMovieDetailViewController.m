@@ -78,7 +78,6 @@ typedef NS_ENUM( NSInteger, FMVMovieDetailSection ) {
     [self.tableView registerClass:[FMVMovieDetailInfoCell class] forCellReuseIdentifier:@"FMVMovieDetailInfoCellIdentifier"];
     [self.tableView registerClass:[FMVMovieDetailButtonCell class] forCellReuseIdentifier:@"FMVMovieDetailButtonCellIdentifier"];
     
- 
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
@@ -87,10 +86,20 @@ typedef NS_ENUM( NSInteger, FMVMovieDetailSection ) {
 {
     [super setEditing:editing animated:animated];
     
-    if ( editing ) // if we were viewing a movie, now we're editing it
+    if ( editing )
+    {   // if we were viewing a movie, now we're editing it
         [self setMode:FMVMovieDetailViewControllerModeEditMovie];
-    else // if we were adding a movie, now we're just viewing it
+        
+        // and replace the back button with a cancel button
+        [self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelButtonPressed:)] animated:animated];
+    }
+    else
+    {   // if we were adding a movie, now we're just viewing it
         [self setMode:FMVMovieDetailViewControllerModeDefault];
+
+        // restore back button
+        [self.navigationItem setLeftBarButtonItem:nil animated:animated];
+    }
 }
 
 - (void)setMode:(FMVMovieDetailViewControllerMode)mode
@@ -98,11 +107,35 @@ typedef NS_ENUM( NSInteger, FMVMovieDetailSection ) {
     _mode = mode;
     
     if ( mode == FMVMovieDetailViewControllerModeEditMovie && !self.isEditing )
+    {
         [self setEditing:YES];
+        [self setTitle:@"Edit Movie"];
+    }
     else if ( mode == FMVMovieDetailViewControllerModeNewMovie && !self.isEditing )
+    {
         [self setEditing:YES];
+        [self setTitle:@"New Movie"];
+    }
     else if ( mode != FMVMovieDetailViewControllerModeEditMovie && self.isEditing )
+    {
         [self setEditing:NO];
+
+        // a little fancy work to set a title
+        NSNumber *tmpIndex = @([[FMVDataHandler movies] indexOfObject:self.movie]);
+        NSNumber *tmpTotal = @([[FMVDataHandler movies] count]);
+        if ( tmpIndex.integerValue != NSNotFound )
+            [self setTitle:[NSString stringWithFormat:@"%d of %d",tmpIndex.intValue,tmpTotal.intValue]];
+        else
+            [self setTitle:@"wat"];
+    }
+}
+
+#pragma mark - Buttons
+- (void)cancelButtonPressed:(UIBarButtonItem *)cancelButton
+{
+    [self setEditing:NO animated:YES];
+
+    // TODO: clear changes
 }
 
 #pragma mark - Table view data source

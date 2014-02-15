@@ -57,7 +57,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Movies" id="tQt-TN-PWz">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="gli-EQ-500">
+                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="gli-EQ-500">
                             <connections>
                                 <action selector="addButtonPressed:" destination="pGg-6v-bdr" id="lck-UN-3u8"/>
                             </connections>

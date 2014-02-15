@@ -54,6 +54,15 @@ NS_ENUM( NSInteger, FMVMovieListSection ) {
     [self setMovies:[FMVDataHandler movies]];
     
     [self.tableView registerClass:[FMVMovieListCell class] forCellReuseIdentifier:@"FMVMovieListCellIdentifier"];
+    
+    [self.navigationItem setLeftBarButtonItem:self.editButtonItem animated:NO];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -98,7 +107,7 @@ NS_ENUM( NSInteger, FMVMovieListSection ) {
     
     // configure cell
     FMVMovie *tmpMovie = [self.movies objectAtIndex:indexPath.row];
-    rtnCell.textLabel.text = tmpMovie.title;
+    rtnCell.textLabel.text = tmpMovie.title?:@"Untitled Movie";
 
     return rtnCell;
 }
@@ -107,6 +116,33 @@ NS_ENUM( NSInteger, FMVMovieListSection ) {
 {
     // TODO: adjust for multi-line titles
     return 60.0f;
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ( editingStyle == UITableViewCellEditingStyleDelete )
+    {
+        FMVMovie *tmpMovie = [[FMVDataHandler movies] objectAtIndex:indexPath.row];
+        if ( [FMVDataHandler removeMovie:tmpMovie] )
+        {
+            // deleted
+            [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        }
+        else
+        {
+            // failed :(
+        }
+    }
+}
+
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath
+{
+    [FMVDataHandler moveMovieFromIndex:sourceIndexPath.row toIndex:destinationIndexPath.row];
 }
 
 @end

@@ -14,7 +14,7 @@
 @interface FMVDataHandler : NSObject
 
 // local store
-+ (NSArray *)movies;
++ (NSMutableArray *)movies;
 
 // add to local store, from search or scratch
 + (BOOL)addMovie:(FMVMovie *)movie;
@@ -29,10 +29,13 @@
             success:(void (^)(FMVMovie *movie))successBlock
             failure:(void (^)(NSError *error))failureBlock;
 
+// for reordering
++ (void)moveMovieFromIndex:(NSInteger)sourceIndex toIndex:(NSInteger)destinationIndex;
+
 @end
 
 
-@interface FMVMovie : NSObject
+@interface FMVMovie : NSObject <NSCoding>
 
 // this comes back from the api, but i dunno what it does
 // @property (nonatomic)         BOOL response;        // "True"

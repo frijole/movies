@@ -13,11 +13,10 @@
 
 static NSMutableArray *_movies = nil;
 
-
 @implementation FMVDataHandler
 
 // local store
-+ (NSArray *)movies
++ (NSMutableArray *)movies
 {
     if ( !_movies ) {
         // load from disk
@@ -52,12 +51,32 @@ static NSMutableArray *_movies = nil;
 // add to local store, from search or scratch
 + (BOOL)addMovie:(FMVMovie *)movie
 {
-    return NO;
+    BOOL rtnStatus = NO;
+    
+    [[[self class] movies] addObject:movie];
+    
+    if ( [[[self class] movies] indexOfObject:movie] != NSNotFound )
+        rtnStatus = YES;
+    
+    if ( rtnStatus )
+        [self saveMovies];
+    
+    return rtnStatus;
 }
 
 + (BOOL)removeMovie:(FMVMovie *)movie
 {
-    return NO;
+    BOOL rtnStatus = NO;
+    
+    [[[self class] movies] removeObject:movie];
+    
+    if ( [[[self class] movies] indexOfObject:movie] == NSNotFound )
+        rtnStatus = YES;
+    
+    if ( rtnStatus )
+        [self saveMovies];
+    
+    return rtnStatus;
 }
 
 // hit the omdb search api
@@ -74,6 +93,20 @@ static NSMutableArray *_movies = nil;
 {
     if ( failureBlock )
         failureBlock(nil);
+}
+
+// for reordering
++ (void)moveMovieFromIndex:(NSInteger)sourceIndex toIndex:(NSInteger)destinationIndex
+{
+    // grab the movie we're moving
+    FMVMovie *tmpMovie = [[[self class] movies] objectAtIndex:sourceIndex];
+
+    // remove it and re-insert it
+    [[self movies] removeObjectAtIndex:sourceIndex];
+    [[self movies] insertObject:tmpMovie atIndex:destinationIndex];
+
+    // and save changes
+    [self saveMovies];
 }
 
 @end
@@ -102,6 +135,73 @@ static NSMutableArray *_movies = nil;
     
     return rtnMovie;
 }
+
+#pragma mark - NSCoding
+- (void)encodeWithCoder:(NSCoder *)coder
+{
+    [coder encodeObject:self.title forKey:@"title"];
+
+    [coder encodeObject:self.directors forKey:@"directors"];
+    [coder encodeObject:self.writers forKey:@"writers"];
+    [coder encodeObject:self.actors forKey:@"actors"];
+    [coder encodeObject:self.countries forKey:@"countries"];
+    [coder encodeObject:self.languages forKey:@"languages"];
+    [coder encodeObject:self.genres forKey:@"genres"];
+    
+    [coder encodeObject:self.year forKey:@"year"];
+    [coder encodeObject:self.released forKey:@"released"];
+    
+    [coder encodeObject:self.type forKey:@"type"];
+    [coder encodeObject:self.runtime forKey:@"runtime"];
+    [coder encodeObject:self.plot forKey:@"plot"];
+    [coder encodeObject:self.poster forKey:@"poster"];
+    [coder encodeObject:self.rated forKey:@"rated"];
+    [coder encodeObject:self.awards forKey:@"awards"];
+    [coder encodeObject:self.metascore forKey:@"metascore"];
+    
+    [coder encodeObject:self.imdbID forKey:@"imdbID"];
+    [coder encodeObject:self.imdbRating forKey:@"imdbRating"];
+    [coder encodeObject:self.imdbVotes forKey:@"imdbVotes"];
+    
+    [coder encodeObject:self.barcode forKey:@"barcode"];
+}
+
+- (id)initWithCoder:(NSCoder *)decoder
+{
+    if ( self = [self init] )
+    {
+        
+        [self setTitle:[decoder decodeObjectForKey:@"title"]];
+        
+        [self setDirectors:[decoder decodeObjectForKey:@"directors"]];
+        [self setWriters:[decoder decodeObjectForKey:@"writers"]];
+        [self setActors:[decoder decodeObjectForKey:@"actors"]];
+        [self setCountries:[decoder decodeObjectForKey:@"countries"]];
+        [self setLanguages:[decoder decodeObjectForKey:@"languages"]];
+        [self setGenres:[decoder decodeObjectForKey:@"genres"]];
+        
+        [self setYear:[decoder decodeObjectForKey:@"year"]];
+        [self setReleased:[decoder decodeObjectForKey:@"released"]];
+        
+        [self setType:[decoder decodeObjectForKey:@"type"]];
+        [self setRuntime:[decoder decodeObjectForKey:@"runtime"]];
+        [self setPlot:[decoder decodeObjectForKey:@"plot"]];
+        [self setPoster:[decoder decodeObjectForKey:@"poster"]];
+        
+        [self setRated:[decoder decodeObjectForKey:@"rated"]];
+        [self setAwards:[decoder decodeObjectForKey:@"awards"]];
+        [self setMetascore:[decoder decodeObjectForKey:@"metascore"]];
+        
+        [self setImdbID:[decoder decodeObjectForKey:@"imdbID"]];
+        [self setImdbRating:[decoder decodeObjectForKey:@"imdbRating"]];
+        [self setImdbVotes:[decoder decodeObjectForKey:@"imdbVotes"]];
+        
+        [self setBarcode:[decoder decodeObjectForKey:@"barcode"]];
+    }
+    
+    return self;
+}
+
 
 
 @end
