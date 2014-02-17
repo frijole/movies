@@ -23,10 +23,14 @@ static NSMutableArray *_movies = nil;
         NSArray *documentDirectories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         NSString *tmpAddressFilePath = [NSString stringWithFormat:@"%@/%@",[documentDirectories objectAtIndex:0],kFMVMovieFileName];
         NSArray *tmpMoviesFromDisk = [NSKeyedUnarchiver unarchiveObjectWithFile:tmpAddressFilePath];
-        if ( tmpMoviesFromDisk && tmpMoviesFromDisk.count > 0 )
+        if ( tmpMoviesFromDisk && tmpMoviesFromDisk.count > 0 ) {
             _movies = [NSMutableArray arrayWithArray:tmpMoviesFromDisk];
+            // NSLog(@"loaded movies from disk");
+        } else {
+            NSLog(@"failed to load movies from disk");
+        }
     }
-
+    
     if ( !_movies ) {
         // failed to load from disk, start from scratch
         _movies = [NSMutableArray array];
@@ -41,7 +45,7 @@ static NSMutableArray *_movies = nil;
     
     NSString *tmpAddressFilePath = [NSString stringWithFormat:@"%@/%@",[documentsDirectories objectAtIndex:0],kFMVMovieFileName];
     if ( [NSKeyedArchiver archiveRootObject:[[self class] movies] toFile:tmpAddressFilePath] ) {
-        NSLog(@"saved movies");
+        // NSLog(@"saved movies");
     } else {
         NSLog(@"error saving movies");
     }

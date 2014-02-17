@@ -32,9 +32,24 @@ NS_ENUM( NSInteger, FMVMovieListSection ) {
     {
         // custom initialization
         [self setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+        
+        [self setBackgroundColor:[UIColor clearColor]];
+        
+        [self.textLabel setTextColor:[UIColor whiteColor]];
+        
+        // NSLog(@"Loaded FMVMovieListCell via init");
     }
     
     return self;
+}
+
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+
+    [self setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+
+    NSLog(@"Loaded FMVMovieListCell via nib");
 }
 
 @end
@@ -63,6 +78,8 @@ NS_ENUM( NSInteger, FMVMovieListSection ) {
     [super viewWillAppear:animated];
     
     [self.tableView reloadData];
+    
+    [self.navigationController setToolbarHidden:YES animated:animated];
 }
 
 - (void)didReceiveMemoryWarning
@@ -110,6 +127,16 @@ NS_ENUM( NSInteger, FMVMovieListSection ) {
     rtnCell.textLabel.text = tmpMovie.title?:@"Untitled Movie";
 
     return rtnCell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    FMVMovie *tmpSelectedMovie = [self.movies objectAtIndex:indexPath.row];
+    
+    FMVMovieDetailViewController *tmpDetailViewController = [[FMVMovieDetailViewController alloc] initWithMovie:tmpSelectedMovie andMode:FMVMovieDetailViewControllerModeDefault];
+    [self.navigationController pushViewController:tmpDetailViewController animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
